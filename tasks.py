@@ -21,10 +21,10 @@ def tests():
     run("python -m unittest tests/*")
 
 
-@task
+@task(clean)
 def coverage():
     run("coverage run application/*.py")
-    run("coverage report -m")
+    run("coverage report")
 
 
 @task(deps, clean)
