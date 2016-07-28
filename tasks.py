@@ -14,6 +14,12 @@ def deps():
     run("pip install -r requirements.txt")
 
 
+@task(clean)
+def tests():
+    run("pycodestyle *.py")
+    run("python -m unittest tests/*")
+
+
 @task(deps, clean)
 def runserver():
     run("gunicorn --bind 0.0.0.0 --reload --pythonpath application app:app")
