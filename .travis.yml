@@ -7,8 +7,6 @@ install:
   - pip install -r requirements.txt
   - pip install coveralls
 
-script: 
-  - invoke tests
-  - invoke coverage
+script: invoke tests
 
 after_success: coveralls
