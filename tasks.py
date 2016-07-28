@@ -17,14 +17,9 @@ def deps():
 
 @task(clean)
 def tests():
-    run("pycodestyle *.py")
-    run("python -m unittest tests/*")
-
-
-@task(clean)
-def coverage():
-    run("coverage run application/*.py")
-    run("coverage report")
+    run("pycodestyle tests/*.py")
+    run("pycodestyle application/*.py")
+    run("nosetests --rednose --exe --with-coverage --cover-package application -v")
 
 
 @task(deps, clean)
