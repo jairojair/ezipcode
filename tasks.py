@@ -7,6 +7,7 @@ from invoke import task, run
 def clean():
     run("find . -name '*.pyc' -delete")
     run("find . -name '*__pycache__' -delete")
+    run("find . -name '.coverage' -delete")
 
 
 @task
@@ -18,6 +19,12 @@ def deps():
 def tests():
     run("pycodestyle *.py")
     run("python -m unittest tests/*")
+
+
+@task
+def coverage():
+    run("coverage run application/*.py")
+    run("coverage report -m")
 
 
 @task(deps, clean)
