@@ -5,5 +5,8 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - pip install coveralls
 
 script: invoke tests
+
+after_success: coveralls
