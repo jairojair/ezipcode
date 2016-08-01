@@ -30,7 +30,7 @@ Easy Brazilian zipcode (CEP) service (http://ezipcode.herokuapp.com/zipcode/)
 ### Setup
 	$ docker-compose build
 
-### Runnings Tests
+### Running Tests
 	$ docker-compose run dev make tests
 
 ### Running App
